@@ -1,4 +1,5 @@
 import React from 'react';
+import Book from './Book';
 
 export default function Read() {
   return (
@@ -6,7 +7,7 @@ export default function Read() {
       <h2 className='bookshelf-title'>Read</h2>
       <div className='bookshelf-books'>
         <ol className='books-grid'>
-          <li>{/* Book Component */}</li>
+          <Book />
         </ol>
       </div>
     </div>

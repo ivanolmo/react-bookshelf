@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as BooksAPI from './BooksAPI';
 import BookList from './BookList.js';
-
 import './App.css';
-import Book from './Book';
 
 function App() {
   // state = {
