@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Book = () => {
+const Book = () => {
   return (
     <li>
       <div className='book'>
@@ -17,9 +17,11 @@ export const Book = () => {
             </select>
           </div>
         </div>
-        <div className='book-title' />
-        <div className='book-authors' />
+        <div className='book-title'>Placeholder Title</div>
+        <div className='book-authors'>Placeholder Author</div>
       </div>
     </li>
   );
 };
+
+export default Book;
