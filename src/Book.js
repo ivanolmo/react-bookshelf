@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Book = () => {
+export default function Book() {
   return (
     <li>
       <div className='book'>
@@ -22,6 +22,4 @@ const Book = () => {
       </div>
     </li>
   );
-};
-
-export default Book;
+}

@@ -20,6 +20,7 @@ export default function BookList() {
           <Read />
         </div>
       </div>
+      {/* break search off into separate component */}
       <div className='open-search'>
         <button onClick={() => console.log('search clicked')}>
           Add a book
