@@ -10,7 +10,7 @@ export default function WantToRead({ books }) {
           {books
             .filter((book) => book.shelf === 'wantToRead')
             .map((book) => {
-              return <Book key={book.id} />;
+              return <Book key={book.id} book={book} />;
             })}
         </ol>
       </div>
