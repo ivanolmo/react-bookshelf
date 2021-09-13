@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-export default function Book({ book }) {
+export default function Book({ book, updateShelf }) {
   const { title, authors, imageLinks } = book;
   return (
     <li>
@@ -17,7 +17,10 @@ export default function Book({ book }) {
             alt='book-cover'
           />
           <div className='book-shelf-changer'>
-            <select>
+            <select
+              onChange={(event) => updateShelf(book, event.target.value)}
+              defaultValue={book.shelf}
+            >
               <option value='move' disabled>
                 Move to...
               </option>
