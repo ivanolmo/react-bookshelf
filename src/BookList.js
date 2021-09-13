@@ -3,7 +3,7 @@ import WantToRead from './WantToRead';
 import CurrentlyReading from './CurrentlyReading';
 import Read from './Read';
 
-export default function BookList() {
+export default function BookList({ books }) {
   return (
     <div className='list-books'>
       <div className='list-books-title'>
@@ -11,13 +11,13 @@ export default function BookList() {
       </div>
       <div className='list-books-content'>
         <div>
-          <CurrentlyReading />
+          <CurrentlyReading books={books} />
         </div>
         <div>
-          <WantToRead />
+          <WantToRead books={books} />
         </div>
         <div>
-          <Read />
+          <Read books={books} />
         </div>
       </div>
       {/* break search off into separate component */}

@@ -23,8 +23,6 @@ function App() {
     setBooks(newBooks);
   };
 
-  console.log(books);
-
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -60,7 +58,7 @@ function App() {
 
   return (
     <div className='app'>
-      <BookList />
+      <BookList books={books} />
     </div>
   );
 }
