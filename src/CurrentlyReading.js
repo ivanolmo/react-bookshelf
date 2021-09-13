@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-export default function CurrentlyReading({ books }) {
+export default function CurrentlyReading({ books, updateShelf }) {
   return (
     <div className='bookshelf'>
       <h2 className='bookshelf-title'>Currently Reading</h2>
@@ -10,7 +10,9 @@ export default function CurrentlyReading({ books }) {
           {books
             .filter((book) => book.shelf === 'currentlyReading')
             .map((book) => {
-              return <Book key={book.id} book={book} />;
+              return (
+                <Book key={book.id} book={book} updateShelf={updateShelf} />
+              );
             })}
         </ol>
       </div>

@@ -3,7 +3,7 @@ import WantToRead from './WantToRead';
 import CurrentlyReading from './CurrentlyReading';
 import Read from './Read';
 
-export default function BookList({ books }) {
+export default function BookList({ books, updateShelf }) {
   return (
     <div className='list-books'>
       <div className='list-books-title'>
@@ -11,13 +11,13 @@ export default function BookList({ books }) {
       </div>
       <div className='list-books-content'>
         <div>
-          <CurrentlyReading books={books} />
+          <CurrentlyReading books={books} updateShelf={updateShelf} />
         </div>
         <div>
-          <WantToRead books={books} />
+          <WantToRead books={books} updateShelf={updateShelf} />
         </div>
         <div>
-          <Read books={books} />
+          <Read books={books} updateShelf={updateShelf} />
         </div>
       </div>
       {/* break search off into separate component */}

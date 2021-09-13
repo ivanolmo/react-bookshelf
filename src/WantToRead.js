@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-export default function WantToRead({ books }) {
+export default function WantToRead({ books, updateShelf }) {
   return (
     <div className='bookshelf'>
       <h2 className='bookshelf-title'>Want to Read</h2>
@@ -10,7 +10,9 @@ export default function WantToRead({ books }) {
           {books
             .filter((book) => book.shelf === 'wantToRead')
             .map((book) => {
-              return <Book key={book.id} book={book} />;
+              return (
+                <Book key={book.id} book={book} updateShelf={updateShelf} />
+              );
             })}
         </ol>
       </div>
