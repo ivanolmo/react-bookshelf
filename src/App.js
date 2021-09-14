@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import * as BooksAPI from './BooksAPI';
-import BookList from './BookList.js';
+import BookList from './BookList';
+import Error from './Error';
+
 import './App.css';
 
 function App() {
@@ -41,15 +44,18 @@ function App() {
 
   return (
     <Router>
-      <div className='app'>
+      <Switch>
         <Route exact path='/'>
           <BookList books={books} updateShelf={updateShelf} />
         </Route>
-        <Route path='/search'>
+        <Route exact path='/search'>
           {/* add search component */}
           <div>search page</div>
         </Route>
-      </div>
+        <Route path='*'>
+          <Error />
+        </Route>
+      </Switch>
     </Router>
   );
 }

@@ -5,26 +5,28 @@ import Read from './Read';
 
 export default function BookList({ books, updateShelf }) {
   return (
-    <div className='list-books'>
-      <div className='list-books-title'>
-        <h1>MyReads</h1>
-      </div>
-      <div className='list-books-content'>
-        <div>
-          <CurrentlyReading books={books} updateShelf={updateShelf} />
+    <div className='app'>
+      <div className='list-books'>
+        <div className='list-books-title'>
+          <h1>MyReads</h1>
         </div>
-        <div>
-          <WantToRead books={books} updateShelf={updateShelf} />
+        <div className='list-books-content'>
+          <div>
+            <CurrentlyReading books={books} updateShelf={updateShelf} />
+          </div>
+          <div>
+            <WantToRead books={books} updateShelf={updateShelf} />
+          </div>
+          <div>
+            <Read books={books} updateShelf={updateShelf} />
+          </div>
         </div>
-        <div>
-          <Read books={books} updateShelf={updateShelf} />
+        {/* break search off into separate component */}
+        <div className='open-search'>
+          <button onClick={() => console.log('search clicked')}>
+            Add a book
+          </button>
         </div>
-      </div>
-      {/* break search off into separate component */}
-      <div className='open-search'>
-        <button onClick={() => console.log('search clicked')}>
-          Add a book
-        </button>
       </div>
     </div>
   );
