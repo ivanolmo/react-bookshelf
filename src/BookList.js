@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import WantToRead from './WantToRead';
 import CurrentlyReading from './CurrentlyReading';
 import Read from './Read';
@@ -21,11 +23,8 @@ export default function BookList({ books, updateShelf }) {
             <Read books={books} updateShelf={updateShelf} />
           </div>
         </div>
-        {/* break search off into separate component */}
         <div className='open-search'>
-          <button onClick={() => console.log('search clicked')}>
-            Add a book
-          </button>
+          <Link to='/search'>Add a book</Link>
         </div>
       </div>
     </div>
