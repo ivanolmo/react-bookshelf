@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import * as BooksAPI from './BooksAPI';
 import BookList from './BookList';
+import Search from './Search';
 import Error from './Error';
 
 import './App.css';
@@ -39,8 +40,7 @@ function App() {
           <BookList books={books} updateShelf={updateShelf} />
         </Route>
         <Route exact path='/search'>
-          {/* add search component */}
-          <div>search page</div>
+          <Search />
         </Route>
         <Route path='*'>
           <Error />
