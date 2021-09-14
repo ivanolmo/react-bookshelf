@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import BookList from './BookList.js';
 import './App.css';
@@ -23,6 +24,7 @@ function App() {
     setBooks(newBooks);
   };
 
+  // utilize useEffect to fetch books from API after page fully renders
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -38,9 +40,17 @@ function App() {
   };
 
   return (
-    <div className='app'>
-      <BookList books={books} updateShelf={updateShelf} />
-    </div>
+    <Router>
+      <div className='app'>
+        <Route exact path='/'>
+          <BookList books={books} updateShelf={updateShelf} />
+        </Route>
+        <Route path='/search'>
+          {/* add search component */}
+          <div>search page</div>
+        </Route>
+      </div>
+    </Router>
   );
 }
 
