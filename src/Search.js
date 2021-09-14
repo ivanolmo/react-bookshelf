@@ -18,7 +18,17 @@ export default function Search() {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-          <input type='text' placeholder='Search by title or author' />
+          <input
+            type='text'
+            placeholder='Search by title or author'
+            value={query}
+            onChange={(event) => {
+              // TODO: handle query whitespace without limiting search option
+              setQuery(event.target.value);
+              console.log('e.t.v. ' + event.target.value);
+              console.log('query state ' + query);
+            }}
+          />
         </div>
       </div>
       <div className='search-books-results'>
