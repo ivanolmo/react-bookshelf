@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
 
-export default function Search() {
+export default function Search({ searchBooks }) {
+  // state variable to store and update query as it is typed
   const [query, setQuery] = useState('');
 
-  const handleChange = (event) => {
-    const newQuery = event.target.value;
-    setQuery(newQuery.trim());
-  };
+  // onChange event handler for input field, updates state variable
+  const handleChange = (event) => setQuery(event.target.value.trim());
 
   return (
     <div className='search-books'>
@@ -16,14 +15,16 @@ export default function Search() {
         <Link to='/' className='close-search'>
           Close
         </Link>
-        <div className='search-books-input-wrapper'>
-          {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */}
+        <div
+          className='search-books-input-wrapper'
+          // add useEffect hook so that state sent to API
+          onChange={useEffect(
+            () => {
+              searchBooks(query);
+            },
+            [query]
+          )}
+        >
           <DebounceInput
             type='text'
             placeholder='Search by title or author'
