@@ -5,6 +5,11 @@ import { DebounceInput } from 'react-debounce-input';
 export default function Search() {
   const [query, setQuery] = useState('');
 
+  const handleChange = (event) => {
+    const newQuery = event.target.value;
+    setQuery(newQuery.trim());
+  };
+
   return (
     <div className='search-books'>
       <div className='search-books-bar'>
@@ -22,14 +27,9 @@ export default function Search() {
           <DebounceInput
             type='text'
             placeholder='Search by title or author'
-            debounceTimeout={1300}
+            debounceTimeout={200}
             value={query}
-            onChange={(event) => {
-              // TODO: handle query whitespace without limiting search option
-              setQuery(event.target.value);
-              console.log('e.t.v. ' + event.target.value);
-              console.log('query state ' + query);
-            }}
+            onChange={handleChange}
           />
         </div>
       </div>
