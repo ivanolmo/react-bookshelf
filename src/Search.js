@@ -13,7 +13,7 @@ export default function Search({
   const [query, setQuery] = useState('');
 
   // onChange event handler for input field, updates state variable
-  const handleChange = (event) => setQuery(event.target.value.trim());
+  const handleChange = (event) => setQuery(event.target.value);
 
   return (
     <div className='search-books'>
@@ -37,6 +37,7 @@ export default function Search({
           )}
         >
           <DebounceInput
+            autoFocus
             type='text'
             placeholder='Search by title or author'
             debounceTimeout={200}
