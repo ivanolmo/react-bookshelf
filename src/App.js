@@ -36,17 +36,22 @@ function App() {
     });
   };
 
+  // function to search for books from API.
   const searchBooks = (query) => {
-    console.log('query sent from search component is ' + query);
-
-    if (query === '') {
+    if (!query) {
       setSearchedBooksList([]);
-    } else {
-      BooksAPI.search(query).then((results) => {
-        setSearchedBooksList(results);
-      });
+      console.log(
+        'empty query and setSearchedBooksList is ' + setSearchedBooksList
+      );
     }
-    // console.log(searchedBooksList);
+
+    BooksAPI.search(query).then((results) => {
+      if (results.error) {
+        setSearchedBooksList([]);
+      } else {
+        setSearchedBooksList(results);
+      }
+    });
   };
 
   return (
