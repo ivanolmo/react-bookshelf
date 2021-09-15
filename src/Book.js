@@ -19,7 +19,7 @@ export default function Book({ book, updateShelf }) {
           <div className='book-shelf-changer'>
             <select
               onChange={(event) => updateShelf(book, event.target.value)}
-              defaultValue={book.shelf}
+              defaultValue={book.shelf ? book.shelf : 'none'}
             >
               <option value='move' disabled>
                 Move to...
