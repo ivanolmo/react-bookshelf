@@ -9,8 +9,11 @@ import Error from './Error';
 import './App.css';
 
 function App() {
-  // state variable that will store books
+  // state variable that will store current books on shelf
   const [books, setBooks] = useState([]);
+
+  // state variable that will store searched books
+  const [searchedBooksList, setSearchedBooksList] = useState([]);
 
   // function that will fetch current books and update state
   const fetchBooks = async () => {
@@ -33,6 +36,19 @@ function App() {
     });
   };
 
+  const searchBooks = (query) => {
+    console.log('query sent from search component is ' + query);
+
+    if (query === '') {
+      setSearchedBooksList([]);
+    } else {
+      BooksAPI.search(query).then((results) => {
+        setSearchedBooksList(results);
+      });
+    }
+    // console.log(searchedBooksList);
+  };
+
   return (
     <Router>
       <Switch>
@@ -40,7 +56,11 @@ function App() {
           <BookList books={books} updateShelf={updateShelf} />
         </Route>
         <Route exact path='/search'>
-          <Search />
+          <Search
+            searchedBooksList={searchedBooksList}
+            searchBooks={searchBooks}
+            updateShelf={updateShelf}
+          />
         </Route>
         <Route path='*'>
           <Error />
