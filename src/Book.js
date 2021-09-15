@@ -32,9 +32,7 @@ export default function Book({ book, updateShelf }) {
           </div>
         </div>
         <div className='book-title'>{title}</div>
-        <div className='book-authors'>
-          {authors.length === 1 ? `${authors[0]}` : `${authors.join(', ')}`}
-        </div>
+        <div className='book-authors'>{authors && authors.join(', ')}</div>
       </div>
     </li>
   );
