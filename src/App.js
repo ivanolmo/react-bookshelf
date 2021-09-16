@@ -38,18 +38,18 @@ function App() {
 
   // function to search for books from API.
   const searchBooks = (query) => {
-    if (!query) {
-      setSearchedBooksList([]);
-      console.log(
-        'empty query and setSearchedBooksList is ' + setSearchedBooksList
-      );
-    }
-
-    BooksAPI.search(query).then((results) => {
-      if (results.error) {
+    BooksAPI.search(query.trim()).then((searchResults) => {
+      if (searchResults.error) {
         setSearchedBooksList([]);
       } else {
-        setSearchedBooksList(results);
+        // check if book from search results is already on shelf, if so then
+        // set the shelf to current status of book on shelf
+        searchResults.map((result) =>
+          books
+            .filter((book) => book.id === result.id)
+            .map((book) => (result.shelf = book.shelf))
+        );
+        setSearchedBooksList(searchResults);
       }
     });
   };
@@ -63,6 +63,7 @@ function App() {
         <Route exact path='/search'>
           <Search
             searchedBooksList={searchedBooksList}
+            setSearchedBooksList={setSearchedBooksList}
             searchBooks={searchBooks}
             updateShelf={updateShelf}
           />
