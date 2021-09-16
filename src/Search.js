@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
 
+import { BookshelfContext } from './App';
 import Book from './Book';
 
-const Search = ({
-  searchedBooksList,
-  setSearchedBooksList,
-  searchBooks,
-  updateShelf,
-  query,
-  setQuery,
-}) => {
+const Search = () => {
+  // get props from useContext
+  const {
+    searchedBooksList,
+    setSearchedBooksList,
+    searchBooks,
+    query,
+    setQuery,
+  } = useContext(BookshelfContext);
+
   // onChange event handler for input field, updates state variable
   const handleChange = (event) => setQuery(event.target.value);
 
@@ -54,9 +57,7 @@ const Search = ({
           <div className='search-books-results'>
             <ol className='books-grid'>
               {searchedBooksList.map((book) => {
-                return (
-                  <Book key={book.id} book={book} updateShelf={updateShelf} />
-                );
+                return <Book key={book.id} book={book} />;
               })}
             </ol>
           </div>
