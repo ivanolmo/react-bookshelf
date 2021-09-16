@@ -6,6 +6,7 @@ import Book from './Book';
 
 export default function Search({
   searchedBooksList,
+  setSearchedBooksList,
   searchBooks,
   updateShelf,
 }) {
@@ -23,13 +24,16 @@ export default function Search({
         </Link>
         <div
           className='search-books-input-wrapper'
-          // add useEffect hook so that state sent to API matches input field
-          // because setState hook is asynchronous. also pass in state variable
+          // add useEffect hook so that state sent to BooksAPI matches input field
+          // as it's typed since setState is asynchronous. also pass in state variable
           // query as the optional second arg so re-render only occurs as state
-          // changes.
+          // changes, i.e. as a search term is typed. finally, clears the search results
+          // completely if the text field is empty.
           onChange={useEffect(
             () => {
-              if (query) {
+              if (query === '') {
+                setSearchedBooksList([]);
+              } else {
                 searchBooks(query);
               }
             },
