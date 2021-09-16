@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-export default function Book({ book, updateShelf }) {
+const Book = ({ book, updateShelf }) => {
   const { title, authors, imageLinks } = book;
   return (
     <li>
@@ -36,4 +36,6 @@ export default function Book({ book, updateShelf }) {
       </div>
     </li>
   );
-}
+};
+
+export default Book;

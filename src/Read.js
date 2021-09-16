@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-export default function Read({ books, updateShelf }) {
+const Read = ({ books, updateShelf }) => {
   return (
     <div className='bookshelf'>
       <h2 className='bookshelf-title'>Read</h2>
@@ -18,4 +18,6 @@ export default function Read({ books, updateShelf }) {
       </div>
     </div>
   );
-}
+};
+
+export default Read;

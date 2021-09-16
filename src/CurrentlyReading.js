@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-export default function CurrentlyReading({ books, updateShelf }) {
+const CurrentlyReading = ({ books, updateShelf }) => {
   return (
     <div className='bookshelf'>
       <h2 className='bookshelf-title'>Currently Reading</h2>
@@ -18,4 +18,6 @@ export default function CurrentlyReading({ books, updateShelf }) {
       </div>
     </div>
   );
-}
+};
+
+export default CurrentlyReading;

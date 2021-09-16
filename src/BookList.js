@@ -5,7 +5,7 @@ import WantToRead from './WantToRead';
 import CurrentlyReading from './CurrentlyReading';
 import Read from './Read';
 
-export default function BookList({ books, updateShelf }) {
+const BookList = ({ books, updateShelf }) => {
   return (
     <div className='app'>
       <div className='list-books'>
@@ -29,4 +29,6 @@ export default function BookList({ books, updateShelf }) {
       </div>
     </div>
   );
-}
+};
+
+export default BookList;

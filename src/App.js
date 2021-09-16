@@ -8,9 +8,12 @@ import Error from './Error';
 
 import './App.css';
 
-function App() {
+const App = () => {
   // state variable that will store current books on shelf
   const [books, setBooks] = useState([]);
+
+  // state variable that will store search query
+  const [query, setQuery] = useState('');
 
   // state variable that will store searched books
   const [searchedBooksList, setSearchedBooksList] = useState([]);
@@ -66,6 +69,8 @@ function App() {
             setSearchedBooksList={setSearchedBooksList}
             searchBooks={searchBooks}
             updateShelf={updateShelf}
+            query={query}
+            setQuery={setQuery}
           />
         </Route>
         <Route path='*'>
@@ -74,6 +79,6 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;
