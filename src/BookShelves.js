@@ -1,13 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import WantToRead from './WantToRead';
-import CurrentlyReading from './CurrentlyReading';
-import Read from './Read';
-import { BookshelfContext } from './App';
+import Shelf from './Shelf';
 
-const BookList = () => {
-  const { books } = useContext(BookshelfContext);
+const BookShelves = () => {
   return (
     <div className='app'>
       <div className='list-books'>
@@ -16,13 +12,16 @@ const BookList = () => {
         </div>
         <div className='list-books-content'>
           <div>
-            <CurrentlyReading books={books} />
+            <Shelf
+              title={'Currently Reading'}
+              shelfValue={'currentlyReading'}
+            />
           </div>
           <div>
-            <WantToRead books={books} />
+            <Shelf title={'Want To Read'} shelfValue={'wantToRead'} />
           </div>
           <div>
-            <Read books={books} />
+            <Shelf title={'Read'} shelfValue={'read'} />
           </div>
         </div>
         <div className='open-search'>
@@ -33,4 +32,4 @@ const BookList = () => {
   );
 };
 
-export default BookList;
+export default BookShelves;
