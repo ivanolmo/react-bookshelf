@@ -2,7 +2,7 @@ import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import * as BooksAPI from './BooksAPI';
-import BookList from './BookList';
+import BookShelves from './BookShelves';
 import Search from './Search';
 import Error from './Error';
 
@@ -74,7 +74,7 @@ const ContextAPI = () => {
       <Router>
         <Switch>
           <Route exact path='/'>
-            <BookList />
+            <BookShelves />
           </Route>
           <Route exact path='/search'>
             <Search />
