@@ -9,9 +9,11 @@ const Search = ({
   setSearchedBooksList,
   searchBooks,
   updateShelf,
+  query,
+  setQuery,
 }) => {
   // state variable to store and update query as it is typed
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
 
   // onChange event handler for input field, updates state variable
   const handleChange = (event) => setQuery(event.target.value);
