@@ -8,7 +8,7 @@ import Error from './Error';
 
 import './App.css';
 
-function App() {
+const App = () => {
   // state variable that will store current books on shelf
   const [books, setBooks] = useState([]);
 
@@ -74,6 +74,6 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;

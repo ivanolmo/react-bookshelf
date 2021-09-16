@@ -4,12 +4,12 @@ import { DebounceInput } from 'react-debounce-input';
 
 import Book from './Book';
 
-export default function Search({
+const Search = ({
   searchedBooksList,
   setSearchedBooksList,
   searchBooks,
   updateShelf,
-}) {
+}) => {
   // state variable to store and update query as it is typed
   const [query, setQuery] = useState('');
 
@@ -65,4 +65,6 @@ export default function Search({
       </div>
     </div>
   );
-}
+};
+
+export default Search;
