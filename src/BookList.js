@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import WantToRead from './WantToRead';
 import CurrentlyReading from './CurrentlyReading';
 import Read from './Read';
+import { BookshelfContext } from './App';
 
-const BookList = ({ books }) => {
+const BookList = () => {
+  const { books } = useContext(BookshelfContext);
   return (
     <div className='app'>
       <div className='list-books'>

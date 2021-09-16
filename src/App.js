@@ -62,6 +62,7 @@ const ContextAPI = () => {
   return (
     <BookshelfContext.Provider
       value={{
+        books,
         updateShelf,
         searchedBooksList,
         setSearchedBooksList,
@@ -73,7 +74,7 @@ const ContextAPI = () => {
       <Router>
         <Switch>
           <Route exact path='/'>
-            <BookList books={books} />
+            <BookList />
           </Route>
           <Route exact path='/search'>
             <Search />
