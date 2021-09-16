@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
 
@@ -12,9 +12,6 @@ const Search = ({
   query,
   setQuery,
 }) => {
-  // state variable to store and update query as it is typed
-  // const [query, setQuery] = useState('');
-
   // onChange event handler for input field, updates state variable
   const handleChange = (event) => setQuery(event.target.value);
 
