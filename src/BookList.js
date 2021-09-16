@@ -5,7 +5,7 @@ import WantToRead from './WantToRead';
 import CurrentlyReading from './CurrentlyReading';
 import Read from './Read';
 
-const BookList = ({ books, updateShelf }) => {
+const BookList = ({ books }) => {
   return (
     <div className='app'>
       <div className='list-books'>
@@ -14,13 +14,13 @@ const BookList = ({ books, updateShelf }) => {
         </div>
         <div className='list-books-content'>
           <div>
-            <CurrentlyReading books={books} updateShelf={updateShelf} />
+            <CurrentlyReading books={books} />
           </div>
           <div>
-            <WantToRead books={books} updateShelf={updateShelf} />
+            <WantToRead books={books} />
           </div>
           <div>
-            <Read books={books} updateShelf={updateShelf} />
+            <Read books={books} />
           </div>
         </div>
         <div className='open-search'>

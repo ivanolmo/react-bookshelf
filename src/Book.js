@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BookshelfContext } from './App';
 import './App.css';
 
-const Book = ({ book, updateShelf }) => {
+const Book = ({ book }) => {
   const { title, authors, imageLinks } = book;
+  const { updateShelf } = useContext(BookshelfContext);
+
   return (
     <li>
       <div className='book'>
