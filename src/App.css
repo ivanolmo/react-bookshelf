@@ -69,10 +69,12 @@ body,
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-size: 0;
   outline: 0;
+  transition: transform 0.2s;
 }
 
-.open-search button:hover {
+.open-search a:hover {
   background-color: rgb(0, 102, 0);
+  transform: scale(1.25);
 }
 
 /* search page */
@@ -113,6 +115,11 @@ body,
   font-size: 0;
   border: none;
   outline: none;
+  transition: transform 0.2s;
+}
+
+.close-search:hover {
+  transform: scale(1.5);
 }
 
 button:active {
@@ -177,6 +184,11 @@ button:active {
   background-position: center;
   background-size: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: transform 0.2s;
+}
+
+.book-shelf-changer:hover {
+  transform: scale(1.2);
 }
 
 .book-shelf-changer select {
