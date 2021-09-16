@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import * as BooksAPI from './BooksAPI';
@@ -8,7 +8,9 @@ import Error from './Error';
 
 import './App.css';
 
-const App = () => {
+const BookshelfContext = createContext();
+
+const ContextAPI = () => {
   // state variable that will store current books on shelf
   const [books, setBooks] = useState([]);
 
@@ -58,27 +60,32 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/'>
-          <BookList books={books} updateShelf={updateShelf} />
-        </Route>
-        <Route exact path='/search'>
-          <Search
-            searchedBooksList={searchedBooksList}
-            setSearchedBooksList={setSearchedBooksList}
-            searchBooks={searchBooks}
-            updateShelf={updateShelf}
-            query={query}
-            setQuery={setQuery}
-          />
-        </Route>
-        <Route path='*'>
-          <Error />
-        </Route>
-      </Switch>
-    </Router>
+    <BookshelfContext.Provider
+      value={{
+        books,
+        updateShelf,
+        searchedBooksList,
+        setSearchedBooksList,
+        searchBooks,
+        query,
+        setQuery,
+      }}
+    >
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <BookList />
+          </Route>
+          <Route exact path='/search'>
+            <Search />
+          </Route>
+          <Route path='*'>
+            <Error />
+          </Route>
+        </Switch>
+      </Router>
+    </BookshelfContext.Provider>
   );
 };
 
-export default App;
+export { ContextAPI, BookshelfContext };

@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book';
 
-const WantToRead = ({ books, updateShelf }) => {
+const WantToRead = ({ books }) => {
   return (
     <div className='bookshelf'>
       <h2 className='bookshelf-title'>Want to Read</h2>
@@ -10,9 +10,7 @@ const WantToRead = ({ books, updateShelf }) => {
           {books
             .filter((book) => book.shelf === 'wantToRead')
             .map((book) => {
-              return (
-                <Book key={book.id} book={book} updateShelf={updateShelf} />
-              );
+              return <Book key={book.id} book={book} />;
             })}
         </ol>
       </div>
