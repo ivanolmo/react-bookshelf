@@ -32,12 +32,14 @@ const ContextAPI = () => {
   }, []);
 
   // function to update book shelf status. takes in book and desired shelf,
-  // sends to BooksAPI, and performs backend update. Then books are fetched
-  // again and state updated.
+  // sends to BooksAPI, and performs backend update. UPDATE: fetching books
+  // a second time isn't good practice according to code reviewer. new logic
+  // modifies the local state of books rather than performing another fetch
+  // to remote server
   const updateShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
       book.shelf = shelf;
-      fetchBooks();
+      setBooks((books) => books.filter((b) => b.id !== book.id).concat([book]));
     });
   };
 
