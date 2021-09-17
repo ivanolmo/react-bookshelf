@@ -21,7 +21,7 @@ const Search = () => {
   return (
     <div className='search-books'>
       <div className='search-books-bar'>
-        <Link to='/' className='close-search'>
+        <Link to='/' className='close-search' onClick={() => setQuery('')}>
           Close
         </Link>
         <div

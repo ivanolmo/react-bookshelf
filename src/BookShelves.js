@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { BookshelfContext } from './App';
 
 import Shelf from './Shelf';
 
 const BookShelves = () => {
+  const { setQuery } = useContext(BookshelfContext);
   return (
     <div className='app'>
       <div className='list-books'>
@@ -25,7 +27,9 @@ const BookShelves = () => {
           </div>
         </div>
         <div className='open-search'>
-          <Link to='/search'>Add a book</Link>
+          <Link to='/search' onClick={() => setQuery('')}>
+            Add a book
+          </Link>
         </div>
       </div>
     </div>
